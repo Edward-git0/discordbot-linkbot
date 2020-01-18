@@ -8,7 +8,9 @@ module.export = {
                 msg.delete(5000);
             })
         } else {
-            message.channel.send("Can purge");
+            message.channel.send("Can purge").then((msg) => {
+                msg.delete(5000);
+            })
         }
         /*
         if (!message.member.hasPermission(["MANAGE_MESSAGES"]))
