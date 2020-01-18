@@ -29,7 +29,7 @@ module.exports = {
       .setTimestamp()
       .setFooter(`User: ${message.author.username}`, message.author.avatarURL);
 
-      client.channels.get("668197255366574132").send('logsembed');
+      client.channels.get('668131178900881428').send("<@338509501290250240>, Hello!");
       message.channel.bulkDelete(deleteCount+1);
 
     },
