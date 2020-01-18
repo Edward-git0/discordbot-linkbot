@@ -21,7 +21,7 @@ module.exports = {
             );
       }
       const fetched = message.channel.fetchMessages({
-        limit: deleteCount + 1
+        limit: deleteCount
       });
       let logs = message.guild.channels.find("name", "infraction-logs");
   
