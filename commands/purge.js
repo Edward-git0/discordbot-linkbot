@@ -20,6 +20,7 @@ module.exports = {
             "Please provide a number between 2 and 100 for the number of messages to delete. :x:"
             );
       }
+       
       const fetched = message.channel.fetchMessages({
         limit: 2
       });
@@ -40,6 +41,7 @@ module.exports = {
   
       message.channel
         .bulkDelete(fetched)
+        .then(messages => logs.send(logsembed))
         .catch(error =>
           message.reply(`Couldn't delete messages because of: ${error}`)
         );
