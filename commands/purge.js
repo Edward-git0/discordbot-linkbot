@@ -15,13 +15,13 @@ module.exports = {
             ); 
         }
         const deleteCount = parseInt(args[0]);
-        message.reply(deleteCount);
         if (!deleteCount || deleteCount < 1 || deleteCount > 100) {
             return message.reply(
             "Please provide a number between 2 and 100 for the number of messages to delete. :x:"
             );
       }
-  
+      message.reply(deleteCount);
+  /*
       
       const fetched = message.channel.fetchMessages({
         limit: deleteCount + 1
@@ -46,6 +46,6 @@ module.exports = {
         .then(messages => logs.send(logsembed))
         .catch(error =>
           message.reply(`Couldn't delete messages because of: ${error}`)
-        );
+        ); */
     },
 }
