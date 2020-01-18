@@ -22,7 +22,7 @@ module.exports = {
             const logs = message.guild.channels.find("name", "infraction-logs");
             message.delete();
 
-            let logsembed = new Discord.RichEmbed()
+            const logsembed = new Discord.RichEmbed()
             .setTitle("Logs")
             .setColor("BLURPLE")
             .addField(
