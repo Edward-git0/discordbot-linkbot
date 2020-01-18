@@ -23,13 +23,19 @@ module.exports = {
 
       let logs = message.guild.channels.find("name", "infraction-logs");
 
-      const embed = new Discord.RichEmbed()
+      let logsembed = new Discord.RichEmbed()
+      .setTitle("Logs")
       .setColor("BLURPLE")
-      .setTitle("Purge")
-      .addField("Purge", `${message.author.tag} deleted ${args[0]} messages in ${message.channel}!`)
+      .addField(
+        `Purge`,
+        `${message.author} purged ${args[0]} messages in ${
+          message.channel
+        }! :white_check_mark:`
+      )
+      .setThumbnail(message.author.avatarURL)
       .setTimestamp()
-      .setThumbnail(message.author.avatarURL);
+      .setFooter(`User: ${message.author.username}`, message.author.avatarURL);
 
-      message.channel.bulkDelete(deleteCount+1).then(messages => logs.send(embed))
+      message.channel.bulkDelete(deleteCount+1).then(messages => logs.send(logsembed))
     },
 }
