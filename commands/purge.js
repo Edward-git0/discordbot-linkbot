@@ -20,8 +20,8 @@ module.exports = {
             "Please provide a number between 2 and 100 for the number of messages to delete. :x:"
             );
       }
-      message.channel.bulkDelete(5);
-      message.reply("Purged 5 messages");
+      message.channel.bulkDelete(deleteCount+1);
+      message.reply("Purged "+deleteCount+" messages");
   /*
       const logsembed = new Discord.RichEmbed()
         .setTitle("Logs")
