@@ -23,7 +23,7 @@ module.exports = {
 
       const logs = message.guild.channels.find("name", "infraction-logs");
 
-      const logsembed = new Discord.RichEmbed()
+      let logsembed = new Discord.RichEmbed()
       .setTitle("Logs")
       .setColor("BLURPLE")
       .addField(
@@ -36,7 +36,7 @@ module.exports = {
       .setTimestamp()
       .setFooter(`User: ${message.author.username}`, message.author.avatarURL);
 
-      message.channel.bulkDelete(deleteCount+1).then(messages => logs.send({logsembed}))
+      message.channel.bulkDelete(deleteCount+1).then(messages => logs.send(logsembed))
       .catch(error =>
         message.reply(`Couldn't delete messages because of: ${error}`)
       );
