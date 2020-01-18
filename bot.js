@@ -46,6 +46,7 @@ client.on('message', message => {
         case "status": 
             message.channel.send(status); 
         break;
+    }
 });
 
  
