@@ -5,7 +5,7 @@ module.export = {
         if (!message.member.hasPermission(["MANAGE_MESSAGES"]))
         return message.channel
           .send("You can't perform this command! :x:")
-          .then(msg => {
+          .then((msg) => {
             msg.delete(5000);
           });
   
@@ -16,7 +16,7 @@ module.export = {
           "Please provide a number between 2 and 100 for the number of messages to delete. :x:"
         );
   
-      const fetched = await message.channel.fetchMessages({
+      const fetched = message.channel.fetchMessages({
         limit: deleteCount + 1
       });
       let logs = message.guild.channels.find("name", "infraction-logs");
