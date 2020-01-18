@@ -21,9 +21,6 @@ module.exports = {
             );
       }
        
-      const fetched = message.channel.fetchMessages({
-        limit: 2
-      });
       let logs = message.guild.channels.find("name", "infraction-logs");
   
       let logsembed = new Discord.RichEmbed()
@@ -40,7 +37,7 @@ module.exports = {
         .setFooter(`User: ${message.author.username}`, message.author.avatarURL);
   
       message.channel
-        .bulkDelete(fetched)
+        .bulkDelete(deleteCount+1)
         .then(messages => logs.send(logsembed))
         .catch(error =>
           message.reply(`Couldn't delete messages because of: ${error}`)
