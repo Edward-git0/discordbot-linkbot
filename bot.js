@@ -120,6 +120,7 @@ client.on('message', async message => {
         break;
         case "kick":
             client.commands.get('kick').execute(message, args, Discord);
+        break;
         case "version":
             message.channel.send("Version: " + version);
         break;
