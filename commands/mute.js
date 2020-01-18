@@ -20,6 +20,7 @@ module.exports = {
         if (member) {
           member.addRole("668230694773850112").then(() => {
             const logs = message.guild.channels.find("name", "infraction-logs");
+            message.delete();
 
             let logsembed = new Discord.RichEmbed()
             .setTitle("Logs")
