@@ -30,6 +30,6 @@ module.exports = {
       .setTimestamp()
       .addThumbnail(message.author.avatarURL);
 
-      message.channel.bulkDelete(deleteCount+1).then(messages => logs.send(`${message.author.tag} deleted ${deleteCount} messages in ${message.channel}!`))
+      message.channel.bulkDelete(deleteCount+1).then(messages => logs.send(embed))
     },
 }
