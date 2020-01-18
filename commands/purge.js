@@ -2,12 +2,6 @@ module.exports = {
     name: "purge",
     description: "Removes messages",
     execute(message, args) {
-        message.channel.send("Purge");
-    },
-}
-
-
-        /*
         if (!message.member.hasPermission(["MANAGE_MESSAGES"]))
         return message.channel
           .send("You can't perform this command! :x:")
@@ -45,4 +39,6 @@ module.exports = {
         .then(messages => logs.send(logsembed))
         .catch(error =>
           message.reply(`Couldn't delete messages because of: ${error}`)
-        ); */
+        );
+    },
+}
