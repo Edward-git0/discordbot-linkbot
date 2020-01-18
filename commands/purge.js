@@ -36,9 +36,13 @@ module.exports = {
       .setTimestamp()
       .setFooter(`User: ${message.author.username}`, message.author.avatarURL);
 
-      message.channel.bulkDelete(deleteCount+1).then(messages => logs.send(logsembed))
+      message.channel
+      .bulkDelete(deleteCount+1)
+      .then(messages => logs.send(logsembed))
       .catch(error =>
         message.reply(`Couldn't delete messages because of: ${error}`)
       );
+  }
+
     },
 }
