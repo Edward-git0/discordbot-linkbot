@@ -22,7 +22,6 @@ client.on('message', message => {
     
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
-    message.reply(args[0]);
 
     switch(command) {
         case "ping":
@@ -32,7 +31,7 @@ client.on('message', message => {
             client.commands.get('avatar').execute(message, args);
         break;
         case "purge":
-            client.commands.get('purge').execute(message, args);
+            client.commands.get('purge').execute(message, args[0]);
         break;
         case "version":
             message.channel.send("Version: " + version);
