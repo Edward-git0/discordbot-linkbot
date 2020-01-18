@@ -20,10 +20,8 @@ module.exports = {
             "Please provide a number between 2 and 100 for the number of messages to delete. :x:"
             );
       }
-       
-      let logs = message.guild.channels.find("name", "infraction-logs");
   
-      let logsembed = new Discord.RichEmbed()
+      const logsembed = new Discord.RichEmbed()
         .setTitle("Logs")
         .setColor("BLURPLE")
         .addField(
@@ -36,11 +34,8 @@ module.exports = {
         .setTimestamp()
         .setFooter(`User: ${message.author.username}`, message.author.avatarURL);
   
-      message.channel
-        .bulkDelete(deleteCount+1)
-        .then(messages => logs.send(logsembed))
-        .catch(error =>
-          message.reply(`Couldn't delete messages because of: ${error}`)
-        );
+      message.channel.bulkDelete(deleteCount+1).then(() => { 
+        client.channels.get('668131178900881428').send(logsembed);
+         })
     },
 }
