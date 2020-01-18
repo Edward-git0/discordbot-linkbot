@@ -37,21 +37,22 @@ module.exports = {
             "Banned by: " + message.author.tag,
             message.author.avatarURL
           );
-          user.send(banembed);
-          member.ban({ reason: reason }).then(() => {
-            const logs = message.guild.channels.find("name", "infraction-logs");
-            const logsembed = new Discord.RichEmbed()
-            .setTitle("Logs")
-            .setColor("BLURPLE")
-            .addField(
-              `Banned`,
-              `${message.author} banned ${user} for reason\n\`\`\`${reason}\`\`\`\nDuration: ${mstime} :white_check_mark:`
-            )
-            .setThumbnail(message.author.avatarURL)
-            .setTimestamp()
-            .setFooter(`User: ${message.author.username}`, message.author.avatarURL);
-            logs.send(logsembed);
-          });
+          user.send(banembed).then(() => { 
+            member.ban({ reason: reason }).then(() => {
+                const logs = message.guild.channels.find("name", "infraction-logs");
+                const logsembed = new Discord.RichEmbed()
+                .setTitle("Logs")
+                .setColor("BLURPLE")
+                .addField(
+                `Banned`,
+                `${message.author} banned ${user} for reason\n\`\`\`${reason}\`\`\`\nDuration: ${mstime} :white_check_mark:\n${args[0]} | ${args[1]} | ${args[2]}`
+                )
+                .setThumbnail(message.author.avatarURL)
+                .setTimestamp()
+                .setFooter(`User: ${message.author.username}`, message.author.avatarURL);
+                logs.send(logsembed);
+            })
+          })
           if (time !== "perm") {
             setTimeout(function() {
               message.guild.unban(member.id).then(() => {
