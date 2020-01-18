@@ -29,7 +29,7 @@ module.exports = {
       .setTimestamp()
 
 
-      message.channel.bulkDelete(deleteCount+1).then(messages => logs.send({logsembed}))
+      message.channel.bulkDelete(deleteCount+1).then((messages) => message.channel.send(logsembed))
 
     },
 }
