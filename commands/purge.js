@@ -1,5 +1,5 @@
 module.exports = {
-    name: "Purge",
+    name: "purge",
     description: "Removes messages",
     execute(message, args) {
         message.channel.send("Purge");
