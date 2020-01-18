@@ -21,8 +21,8 @@ client.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
     
     const args = message.content.slice(prefix.length).split(/ +/);
-    message.reply(args[0]);
     const command = args.shift().toLowerCase();
+    message.reply(args[0]);
 
     switch(command) {
         case "ping":
