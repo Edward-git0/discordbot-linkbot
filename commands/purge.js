@@ -2,7 +2,7 @@ module.exports = {
     name: "Purge",
     description: "Removes messages",
     execute(message, args) {
-        message.reply("Purge");
+        message.channel.send("Purge");
     }
 }
 
