@@ -9,7 +9,7 @@ module.exports = {
                 msg.delete(5000);
             });
         }
-        if(!args.length) {
+        if(!args) {
             return message.reply(
                 "Please provide a number between 2 and 100 for the number of messages to delete. :x:"
             ); 
