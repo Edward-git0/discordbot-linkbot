@@ -21,8 +21,8 @@ module.exports = {
             );
       }
       message.channel.bulkDelete(deleteCount+1);
-      message.reply("Purged "+deleteCount+" messages");
-  /*
+
+      const logs = message.guild.channels.find("name", "infraction-logs");
       const logsembed = new Discord.RichEmbed()
         .setTitle("Logs")
         .setColor("BLURPLE")
@@ -36,8 +36,7 @@ module.exports = {
         .setTimestamp()
         .setFooter(`User: ${message.author.username}`, message.author.avatarURL);
   
-      message.channel.bulkDelete(deleteCount+1).then(() => { 
-        client.channels.get('668131178900881428').send(logsembed);
-         }) */
+        logs.send({logsembed});
+
     },
 }
