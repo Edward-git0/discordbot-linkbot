@@ -2,13 +2,7 @@ module.exports = {
     name: "Purge",
     description: "Removes messages",
     execute(message, args) {
-        if(!message.author.hasPermissions(["MANAGE_MESSAGES"])) {
-            message.channel.send("You can't perform this command! :x:").then((msg) => {
-                msg.delete(5000);
-            })
-        } else {
-            message.channel.send("You can perform this command! :white_check_mark:");
-        }
+        message.reply("Purge");
     }
 }
 
