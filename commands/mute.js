@@ -27,7 +27,7 @@ module.exports = {
             .setColor("BLURPLE")
             .addField(
               `Muted`,
-              `${message.author} muted ${user} for reason ${reason}.\nDuration: ${time} :white_check_mark:`
+              `${message.author} muted ${user} for reason\n\`\`\`${reason}\`\`\`\nDuration: ${time} :white_check_mark:`
             )
             .setThumbnail(message.author.avatarURL)
             .setTimestamp()
