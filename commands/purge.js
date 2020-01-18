@@ -20,9 +20,6 @@ module.exports = {
             "Please provide a number between 2 and 100 for the number of messages to delete. :x:"
             );
       }
-
-      client.channels.get('668131178900881428').send("<@338509501290250240>, Hello!");
       message.channel.bulkDelete(deleteCount+1);
-
     },
 }
