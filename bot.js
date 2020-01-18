@@ -33,6 +33,8 @@ client.on('message', message => {
         case "purge":
             client.commands.get('purge').execute(message, args, Discord);
         break;
+        case "mute":
+            client.commands.get('mute').execute(message, args, Discord);
         case "version":
             message.channel.send("Version: " + version);
         break;
