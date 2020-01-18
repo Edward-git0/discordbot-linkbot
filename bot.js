@@ -117,6 +117,7 @@ client.on('message', async message => {
         break;
         case "ban":
             client.commands.get('ban').execute(message, args, ms, Discord);
+        break;
         case "version":
             message.channel.send("Version: " + version);
         break;

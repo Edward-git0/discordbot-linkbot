@@ -37,7 +37,7 @@ module.exports = {
             "Banned by: " + message.author.tag,
             message.author.avatarURL
           );
-          member.send(banembed);
+          user.send(banembed);
           member.ban({ reason: reason }).then(() => {
             const logs = message.guild.channels.find("name", "infraction-logs");
             const logsembed = new Discord.RichEmbed()
@@ -61,17 +61,12 @@ module.exports = {
                 .setColor("BLURPLE")
                 .addField(
                   `Unbanned`,
-                  `${message.author} unbanned ${user} :white_check_mark:`
+                  `Unbanned ${user} :white_check_mark:`
                 )
-                .setThumbnail(message.author.avatarURL)
+                .setThumbnail(user.avatarURL)
                 .setTimestamp()
-                .setFooter(`User: ${message.author.username}`, message.author.avatarURL);
+                .setFooter(`User: ${user.username}`, user.avatarURL);
                 logs.send(logsembed);
-                member.send(
-                  "**You were finally unbanned from " +
-                    message.guild.name +
-                    "!** :tada:"
-                );
               });
             }, ms(time));
           }
