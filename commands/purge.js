@@ -9,6 +9,7 @@ module.exports = {
                 msg.delete(5000);
             });
         }
+        message.channel.send(args[0]);
         if(!args.length) {
             return message.reply(
                 "Please provide a number between 2 and 100 for the number of messages to delete. :x:"
