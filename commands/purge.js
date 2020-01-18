@@ -1,7 +1,7 @@
 module.exports = {
     name: "purge",
     description: "Removes messages",
-    execute(message, args) {
+    execute(message, args, Discord) {
         if (!message.member.hasPermission(["MANAGE_MESSAGES"])) {
             return message.channel
             .send("You can't perform this command! :x:")
