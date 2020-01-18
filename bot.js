@@ -30,8 +30,7 @@ client.on('message', message => {
             client.commands.get('avatar').execute(message, args);
         break;
         case "purge":
-            message.channel.send("Purge");
-            //client.commands.get('purge').execute(message, args);
+            client.commands.get('purge').execute(message, args);
         break;
         case "version":
             message.channel.send("Version: " + version);
