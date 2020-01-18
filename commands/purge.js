@@ -22,6 +22,6 @@ module.exports = {
       }
 
       let logs = message.guild.channels.find("name", "infraction-logs");
-      message.channel.bulkDelete(deleteCount+1).then(messages => logs.send(`${message.author} deleted ${deleteCount} messages in ${message.channel}!`))
+      message.channel.bulkDelete(deleteCount+1).then(messages => logs.send(`${message.author.tag} deleted ${deleteCount} messages in ${message.channel}!`))
     },
 }
