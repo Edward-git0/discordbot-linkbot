@@ -18,7 +18,7 @@ module.exports = {
       if (user) {
         const member = message.guild.member(user);
         if (member) {
-          member.addRole("660311773613654019").then(() => {
+          member.addRole("668230694773850112").then(() => {
             message.channel.send(
               `**Successfully muted ${user.tag}` + " for " + ms(ms(time)) + ".**"
             );
@@ -30,7 +30,7 @@ module.exports = {
                 "`"
             );
             setTimeout(function() {
-              member.removeRole("660311773613654019");
+              member.removeRole("668230694773850112");
               user.send("**You were unmuted in LinkCord! :tada:**");
               message.channel.send(`**${user.tag} has been unmuted!**`);
             }, ms(time));
