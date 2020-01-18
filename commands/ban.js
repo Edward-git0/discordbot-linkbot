@@ -19,6 +19,25 @@ module.exports = {
               "Provide a reason. :x: `,ban {user} {time} {reason}`"
             );
           let mstime = args[2];
+
+          const banembed = new Discord.RichEmbed()
+          .setTitle("Banned")
+          .setDescription(
+            "You were banned from " +
+              message.guild +
+              " for " +
+              mstime +
+              " because: \n```\n" +
+              reason +
+              "\n```"
+          )
+          .setTimestamp()
+          .setColor("BLURPLE")
+          .setFooter(
+            "Banned by: " + message.author.tag,
+            message.author.avatarURL
+          );
+          member.send(banembed);
           member.ban({ reason: reason }).then(() => {
             const logs = message.guild.channels.find("name", "infraction-logs");
             const logsembed = new Discord.RichEmbed()
@@ -32,25 +51,6 @@ module.exports = {
             .setTimestamp()
             .setFooter(`User: ${message.author.username}`, message.author.avatarURL);
             logs.send(logsembed);
-
-            const banembed = new Discord.RichEmbed()
-            .setTitle("Banned")
-            .setDescription(
-              "You were banned from " +
-                message.guild +
-                " for " +
-                mstime +
-                " because: \n```\n" +
-                reason +
-                "\n```"
-            )
-            .setTimestamp()
-            .setColor("BLURPLE")
-            .setFooter(
-              "Banned by: " + message.author.tag,
-              message.author.avatarURL
-            );
-            user.send(banembed);
           });
           if (time !== "perm") {
             setTimeout(function() {
@@ -67,7 +67,7 @@ module.exports = {
                 .setTimestamp()
                 .setFooter(`User: ${message.author.username}`, message.author.avatarURL);
                 logs.send(logsembed);
-                user.send(
+                member.send(
                   "**You were finally unbanned from " +
                     message.guild.name +
                     "!** :tada:"
