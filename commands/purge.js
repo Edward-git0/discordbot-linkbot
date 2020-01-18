@@ -22,7 +22,6 @@ module.exports = {
       }
       message.channel.bulkDelete(deleteCount+1);
 
-      const logs = message.guild.channels.find("name", "infraction-logs");
       const logsembed = new Discord.RichEmbed()
         .setTitle("Logs")
         .setColor("BLURPLE")
@@ -36,7 +35,7 @@ module.exports = {
         .setTimestamp()
         .setFooter(`User: ${message.author.username}`, message.author.avatarURL);
   
-        logs.send({logsembed});
+        client.channels.get("668197255366574132").send(logsembed);
 
     },
 }
