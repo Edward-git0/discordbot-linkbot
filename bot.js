@@ -11,14 +11,6 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 }
 
-/* client.modules = new Discord.Collection();
-const moduleFiles = fs.readdirSync('./modules').filter(file => file.endsWith(".js"));
-for (const file of moduleFiles) {
-    const _module = require(`./modules/${file}`);
-    client.modules.set(_module.name, _module);
-} */
-
-//client.mongoose = require('./utils/mongoose.js');
 
 client.on('ready', () => {
     console.log("Update");
