@@ -37,34 +37,15 @@ client.on('message', message => {
         case "avatar":
             client.commands.get('avatar').execute(message, args);
         break;
+        case "purge":
+            client.commands.get('purge').execute(message, args)
+        break;
         case "version":
             message.channel.send("Version: " + version);
         break;
         case "status": 
             message.channel.send(status); 
         break;
-        case "bot":
-            let uptime = client.uptime / 1000;
-            if(uptime > 60) {
-                uptime = Math.round(uptime / 60);
-                if(uptime > 60) {
-                    uptime = Math.round(uptime / 60);
-                    uptime = uptime.toString()+" Hours";
-                } else { if(uptime == 1) { uptime = uptime.toString()+" Minute"; } else { uptime = uptime.toString()+" Minutes"; }}
-            } else { uptime = uptime.toString()+" Seconds"; }
-            const embed = new Discord.RichEmbed()
-            embed.setColor("#0fe22b");
-            embed.setTitle("Space Cabbie");
-            embed.setDescription("Bot Details");
-            embed.addField("Uptime: ", uptime);
-            embed.addField("Ping: ", client.ping+"ms");
-            embed.addField("Status", "Alive");
-            embed.setThumbnail("https://cdn.discordapp.com/avatars/667074896089579532/d8bc04cecf328a8f5516378e04d96e62.webp");
-            embed.setFooter("Space Cabbie made by Edward", "https://cdn.discordapp.com/avatars/667074896089579532/d8bc04cecf328a8f5516378e04d96e62.webp");
-
-            message.channel.send({embed});
-        break;
-    }
 });
 
  
