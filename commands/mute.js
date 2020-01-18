@@ -19,9 +19,20 @@ module.exports = {
         const member = message.guild.member(user);
         if (member) {
           member.addRole("668230694773850112").then(() => {
-            message.channel.send(
-              `**Successfully muted ${user.tag}` + " for " + ms(ms(time)) + ".**"
-            );
+            const logs = message.guild.channels.find("name", "infraction-logs");
+
+            let logsembed = new Discord.RichEmbed()
+            .setTitle("Logs")
+            .setColor("BLURPLE")
+            .addField(
+              `Muted`,
+              `${message.author} muted ${user.tag} for reason ${reason}.\nDuration: ${time} :white_check_mark:`
+            )
+            .setThumbnail(message.author.avatarURL)
+            .setTimestamp()
+            .setFooter(`User: ${message.author.username}`, message.author.avatarURL);
+            logs.send(logsembed);
+
             user.send(
               "**You were muted in LinkCord because:** \n```\n" +
                 reason +
@@ -32,7 +43,17 @@ module.exports = {
             setTimeout(function() {
               member.removeRole("668230694773850112");
               user.send("**You were unmuted in LinkCord! :tada:**");
-              message.channel.send(`**${user.tag} has been unmuted!**`);
+              let logsembed = new Discord.RichEmbed()
+              .setTitle("Logs")
+              .setColor("BLURPLE")
+              .addField(
+              `Unmuted`,
+              `${user.tag} was unmuted! :white_check_mark:`
+              )
+              .setThumbnail(user.avatarURL)
+              .setTimestamp()
+              .setFooter(`User: ${user.username}`, user.avatarURL);
+              logs.send(logsembed);
             }, ms(time));
           });
         } else {
