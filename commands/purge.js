@@ -21,5 +21,6 @@ module.exports = {
             );
       }
       message.channel.bulkDelete(deleteCount+1);
+      message.channel.send(message.author+" has deleted "+deletedCount+" messages!");
     },
 }
