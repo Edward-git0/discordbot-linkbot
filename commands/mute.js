@@ -27,7 +27,7 @@ module.exports = {
             .setColor("BLURPLE")
             .addField(
               `Muted`,
-              `${message.author} muted ${user.tag} for reason ${reason}.\nDuration: ${time} :white_check_mark:`
+              `${message.author} muted ${user} for reason ${reason}.\nDuration: ${time} :white_check_mark:`
             )
             .setThumbnail(message.author.avatarURL)
             .setTimestamp()
@@ -53,7 +53,7 @@ module.exports = {
               )
               .setThumbnail(user.avatarURL)
               .setTimestamp()
-              .setFooter(`User: ${user.username}`, user.avatarURL);
+              .setFooter(`User: ${user}`, user.avatarURL);
               logs.send(logsembed);
             }, ms(time));
           });
