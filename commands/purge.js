@@ -45,7 +45,7 @@ module.exports = {
 	.setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
 
 
-      message.channel.bulkDelete(deleteCount+1).then((messages) => logs.send(exampleEmbed))
+      message.channel.bulkDelete(deleteCount+1).then((messages) => logs.send('exampleEmbed'))
 
     },
 }
