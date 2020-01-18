@@ -2,6 +2,18 @@ module.exports = {
     name: "Purge",
     description: "Removes messages",
     execute(message, args) {
+        if(!message.member.hasPermissions(["MANAGE_MESSAGES"])) {
+            message.channel.send("You can't perform this command! :x:").then((msg) => {
+                msg.delete(5000);
+            })
+        } else {
+            message.channel.send("You can perform this command! :white_check_mark:");
+        }
+    }
+}
+
+
+        /*
         if (!message.member.hasPermission(["MANAGE_MESSAGES"]))
         return message.channel
           .send("You can't perform this command! :x:")
@@ -39,6 +51,4 @@ module.exports = {
         .then(messages => logs.send(logsembed))
         .catch(error =>
           message.reply(`Couldn't delete messages because of: ${error}`)
-        );
-    }
-}
+        ); */
