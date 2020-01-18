@@ -2,6 +2,7 @@ module.export = {
     name: "Purge",
     description: "Removes messages",
     execute(message, args) {
+        message.reply("Purge");
         if (!message.member.hasPermission(["MANAGE_MESSAGES"]))
         return message.channel
           .send("You can't perform this command! :x:")
