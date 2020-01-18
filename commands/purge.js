@@ -28,7 +28,7 @@ module.exports = {
       .setTitle("Purge")
       .addField("Purge", `${message.author.tag} deleted ${args[0]} messages in ${message.channel}!`)
       .setTimestamp()
-      .addThumbnail(message.author.avatarURL);
+      .setThumbnail(message.author.avatarURL);
 
       message.channel.bulkDelete(deleteCount+1).then(messages => logs.send(embed))
     },
