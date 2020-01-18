@@ -20,7 +20,9 @@ module.exports = {
             "Please provide a number between 2 and 100 for the number of messages to delete. :x:"
             );
       }
-  
+      message.reply("Purging 5 messages");
+      message.channel.bulkDelete(6);
+  /*
       const logsembed = new Discord.RichEmbed()
         .setTitle("Logs")
         .setColor("BLURPLE")
@@ -36,6 +38,6 @@ module.exports = {
   
       message.channel.bulkDelete(deleteCount+1).then(() => { 
         client.channels.get('668131178900881428').send(logsembed);
-         })
+         }) */
     },
 }
