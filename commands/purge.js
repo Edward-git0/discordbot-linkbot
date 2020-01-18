@@ -1,4 +1,4 @@
-module.export = {
+module.exports = {
     name: "Purge",
     description: "Removes messages",
     execute(message, args) {
