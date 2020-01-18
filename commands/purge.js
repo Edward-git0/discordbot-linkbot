@@ -21,16 +21,5 @@ module.exports = {
             );
       }
       message.channel.bulkDelete(deleteCount+1);
-
-  /*    const logsembed = new Discord.RichEmbed()
-        .setTitle("Logs")
-        .setColor("BLURPLE")
-        .addField("Purge", message.author+" purged "+deleteCount+" messages in "+message.channel+"! :white_check_mark:")
-        .setThumbnail(message.author.avatarURL)
-        .setTimestamp()
-        .setFooter(`User: ${message.author.username}`, message.author.avatarURL); */
-  
-        client.channels.get("668197255366574132").send('logsembed');
-
     },
 }
