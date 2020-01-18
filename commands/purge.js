@@ -1,7 +1,7 @@
 module.exports = {
     name: "purge",
     description: "Removes messages",
-    execute(message, args, client) {
+    execute(message, args) {
         if (!message.member.hasPermission(["MANAGE_MESSAGES"])) {
             return message.channel
             .send("You can't perform this command! :x:")
@@ -22,16 +22,16 @@ module.exports = {
       }
 
       let logs = message.guild.channels.find("name", "infraction-logs");
-      let logsembed = new Discord.RichEmbed()
+   /*   let logsembed = new Discord.RichEmbed()
       .setTitle("Logs")
       .setColor("BLURPLE")
       .addField("Purge", "purge") //message.author+" purged "+deleteCount+" messages in "+message.channel+"! :white_check_mark:")
       .setThumbnail(message.author.avatarURL)
       .setTimestamp()
-      .setFooter(`User: ${message.author.username}`, message.author.avatarURL);
+      .setFooter(`User: ${message.author.username}`, message.author.avatarURL); */
 
 
-      message.channel.bulkDelete(deleteCount+1).then(messages => logs.send(logsembed))
+      message.channel.bulkDelete(deleteCount+1).then(messages => logs.send('logsembed'))
 
     },
 }
