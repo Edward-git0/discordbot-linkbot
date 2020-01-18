@@ -18,7 +18,7 @@ module.exports = {
             return message.channel.send(
               "Provide a reason. :x: `,ban {user} {time} {reason}`"
             );
-          let mstime = args[2];
+          let mstime = args[1];
 
           const banembed = new Discord.RichEmbed()
           .setTitle("Banned")
@@ -26,7 +26,7 @@ module.exports = {
             "You were banned from " +
               message.guild +
               " for " +
-              mstime +
+              args[1] +
               " because: \n```\n" +
               reason +
               "\n```"
@@ -45,7 +45,7 @@ module.exports = {
                 .setColor("BLURPLE")
                 .addField(
                 `Banned`,
-                `${message.author} banned ${user} for reason\n\`\`\`${reason}\`\`\`\nDuration: ${mstime} :white_check_mark:\n${args[0]} | ${args[1]} | ${args[2]}`
+                `${message.author} banned ${user} for reason\n\`\`\`${reason}\`\`\`\nDuration: ${args[1]} :white_check_mark:`
                 )
                 .setThumbnail(message.author.avatarURL)
                 .setTimestamp()
