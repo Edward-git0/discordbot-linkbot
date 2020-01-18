@@ -21,7 +21,8 @@ module.exports = {
             );
       }
 
-      const logsembed = new Discord.RichEmbed()
+      let logs = message.guild.channels.find("name", "infraction-logs");
+      let logsembed = new Discord.RichEmbed()
       .setTitle("Logs")
       .setColor("BLURPLE")
       .addField("Purge", "purge") //message.author+" purged "+deleteCount+" messages in "+message.channel+"! :white_check_mark:")
