@@ -26,10 +26,10 @@ module.exports = {
       const embed = new Discord.RichEmbed()
       .setColor("BLURPLE")
       .setTitle("Purge")
-      .addField("Purge", `${message.author.tag} deleted ${deleteCount} messages in ${message.channel}!`)
+      .addField("Purge", `${message.author.tag} deleted ${args[0]} messages in ${message.channel}!`)
       .setTimestamp()
       .addThumbnail(message.author.avatarURL);
 
-      message.channel.bulkDelete(deleteCount+1).then(messages => logs.send({embed}))
+      message.channel.bulkDelete(deleteCount+1).then(messages => logs.send(`${message.author.tag} deleted ${deleteCount} messages in ${message.channel}!`))
     },
 }
