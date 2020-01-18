@@ -2,13 +2,14 @@ module.export = {
     name: "Purge",
     description: "Removes messages",
     execute(message, args) {
+
         if (!message.member.hasPermissions(["MANAGE_MESSAGES"])) {
-            return message.channel.send("You can't perform this command! :x:").then((msg) => {
+            message.channel.send("You can't perform this command! :x:").then((msg) => {
                 msg.delete(5000);
             })
+        } else {
+            message.channel.send("Can purge");
         }
-        message.channel.send("Can purge");
-        
         /*
         if (!message.member.hasPermission(["MANAGE_MESSAGES"]))
         return message.channel
