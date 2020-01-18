@@ -1,7 +1,7 @@
 module.exports = {
     name: "mute",
     description: "Mute a user",
-    execute(message, args) {
+    execute(message, args, ms) {
         if (!message.member.hasPermission(["MANAGE_MESSAGES"]))
         return message.channel.send("You can't perform this command. ❌");
       let user = message.mentions.users.first();

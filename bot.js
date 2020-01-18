@@ -1,4 +1,5 @@
 const fs = require('fs');
+const ms = require('ms');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const { prefix, token, version, status } = require('./config.json');
@@ -34,7 +35,7 @@ client.on('message', message => {
             client.commands.get('purge').execute(message, args, Discord);
         break;
         case "mute":
-            client.commands.get('mute').execute(message, args, Discord);
+            client.commands.get('mute').execute(message, args, ms);
         break;
         case "version":
             message.channel.send("Version: " + version);
