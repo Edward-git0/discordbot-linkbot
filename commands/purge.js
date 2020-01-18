@@ -21,26 +21,11 @@ module.exports = {
             );
       }
       const fetched = message.channel.fetchMessages({
-        limit: deleteCount
+        limit: deleteCount + 1
       });
-      let logs = message.guild.channels.find("name", "infraction-logs");
-  
-      let logsembed = new Discord.RichEmbed()
-        .setTitle("Logs")
-        .setColor("BLURPLE")
-        .addField(
-          `Purge`,
-          `${message.author} purged ${args[0]} messages in ${
-            message.channel
-          }! :white_check_mark:`
-        )
-        .setThumbnail(message.author.avatarURL)
-        .setTimestamp()
-        .setFooter(`User: ${message.author.username}`, message.author.avatarURL);
-  
+   
       message.channel
         .bulkDelete(fetched)
-        .then(messages => logs.send(logsembed))
         .catch(error =>
           message.reply(`Couldn't delete messages because of: ${error}`)
         );
