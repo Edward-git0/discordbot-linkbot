@@ -108,7 +108,7 @@ client.on('message', async message => {
             client.commands.get('ping').execute(message, client.ping);
         break;
         case "avatar":
-            client.commands.get('avatar').execute(message, args);
+            client.commands.get('avatar').execute(message, args, Discord);
         break;
         case "purge":
             client.commands.get('purge').execute(message, args, Discord);
@@ -157,6 +157,12 @@ client.on('message', async message => {
         break;
         case "toggle":
           client.commands.get('toggle').execute(message, args, Discord);
+        break;
+        case "serverinfo":
+          client.commands.get('serverinfo').execute(message, args, Discord);
+        break;
+        case "boxing":
+          client.commands.get('boxing').execute(message, args);
         break;
         case "status": 
             message.channel.send(status); 
