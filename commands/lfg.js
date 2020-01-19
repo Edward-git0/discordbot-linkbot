@@ -21,7 +21,7 @@ module.exports = {
         
         const m = await message.guild.channels.get("668131178900881428").send(lfg).then((msg) => { 
             msg.react("👌");
-            const filter = (reaction, user) => reaction.emoji.name === '👌' && user.id === 'someID'
+            const filter = (reaction, user) => reaction.emoji.name === '👌' && user.id === message.author.id
             const collector = message.createReactionCollector(filter, { time: 3600000 });
             collector.on('collect', r => console.log(`Collected ${r.emoji.name}`));
             collector.on('end', collected => console.log(`Collected ${collected.size} items`));
