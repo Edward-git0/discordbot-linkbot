@@ -2,7 +2,7 @@ module.exports = {
     name: "giveaway",
     description: "Free things!",
     category: "fun",
-    async execute(message, args, Discord, ms) {
+    execute(message, args, Discord, ms) {
         // yes someone literally copied a dutch youtubers video lmfao ===================================== smh dont kill me pls
         if (command === "giveaway") {
             var item = "";
@@ -40,8 +40,9 @@ module.exports = {
             .setTimestamp();
 
             message.channel.send("<@&661242080374423562>");
-            let msgsent = await message.channel.send(giveembed);
-            msgsent.react("🎉");
+            let msgsent = message.channel.send(giveembed).then((msg) => {
+                msg.react("🎉").
+            })
 
             setTimeout(function() {
             var random = 0;
