@@ -55,7 +55,7 @@ module.exports = {
                 var people = msgsent.reactions.get("🎉").users.array();
         
                 for (let i = 0; i < people.length; i++) {
-                    if (people[i].id === Client.user.id) {
+                    if (people[i].id === msgsent.author.id) {
                     people.splice(i, 1);
                     continue;
                     }

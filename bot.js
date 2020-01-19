@@ -170,6 +170,9 @@ client.on('message', async message => {
         case "giveaway":
           client.commands.get('giveaway').execute(message, args, Discord, ms);
         break;
+        case "lfg":
+          client.commands.get('lfg').execute(message, args, Discord);
+        break;
         case "status": 
             message.channel.send(status); 
         break;
