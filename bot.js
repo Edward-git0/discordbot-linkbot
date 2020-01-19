@@ -167,6 +167,9 @@ client.on('message', async message => {
         case "help":
           client.commands.get('help').execute(message, args, Discord);
         break;
+        case "giveaway":
+          client.commands.get('giveaway').execute(message, args, Discord, ms);
+        break;
         case "status": 
             message.channel.send(status); 
         break;
