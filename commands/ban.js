@@ -1,6 +1,7 @@
 module.exports = {
     name: "ban",
     description: "Ban Hammer",
+    category: "moderation",
     execute(message, args, ms, Discord) {
         if (!message.member.hasPermission(["BAN_MEMBERS"]))
         return message.channel.send("You can't perform this command. ❌");

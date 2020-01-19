@@ -1,6 +1,7 @@
 module.exports = {
     name: "purge",
     description: "Removes messages",
+    category: "moderation",
     execute(message, args, Discord) {
         if (!message.member.hasPermission(["MANAGE_MESSAGES"])) {
             return message.channel

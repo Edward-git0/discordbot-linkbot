@@ -1,6 +1,7 @@
 module.exports = {
 	name: 'ping',
 	description: 'Ping!',
+	category: "general",
 	execute(message, args) {
 		message.channel.send("Ping?").then((msg) => {
 			msg.edit(

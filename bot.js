@@ -122,10 +122,10 @@ client.on('message', async message => {
             client.commands.get('kick').execute(message, args, Discord);
         break;
         case "say":
-            client.commands.get('say').execute(message, args)
+            client.commands.get('say').execute(message, args);
         break;
-        case "version":
-            message.channel.send("Version: " + version);
+        case "kill":
+          client.commands.get('kill').execute(message, args);
         break;
         case "status": 
             message.channel.send(status); 

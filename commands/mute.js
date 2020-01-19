@@ -1,6 +1,7 @@
 module.exports = {
     name: "mute",
     description: "Mute a user",
+    category: "moderation",
     execute(message, args, ms, Discord) {
         if (!message.member.hasPermission(["MANAGE_MESSAGES"]))
         return message.channel.send("You can't perform this command. ❌");

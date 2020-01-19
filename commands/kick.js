@@ -1,6 +1,7 @@
 module.exports = {
     name: "kick",
     description: "Kick users",
+    category: "moderation",
     execute(message, args, Discord) {
         if (!message.member.hasPermission(["KICK_MEMBERS"]))
         return message.channel.send("You can't perform this command. ❌");
