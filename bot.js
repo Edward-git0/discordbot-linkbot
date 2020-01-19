@@ -152,6 +152,9 @@ client.on('message', async message => {
         case "announce":
           client.commands.get('announce').execute(message, args, Discord);
         break;
+        case "slowmode":
+          client.commands.get('slowmode').execute(message, args, Discord);
+        break;
         case "status": 
             message.channel.send(status); 
         break;
