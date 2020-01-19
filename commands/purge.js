@@ -41,10 +41,13 @@ module.exports = {
       .setDescription("Purge successful :white_check_mark:")
       .setColor("BLURPLE")
       .setTimestamp();
-      message.channel.send(embed2);
       message.channel
       .bulkDelete(deleteCount+1)
-      .then(messages => logs.send(logsembed))
+      .then(messages => { logs.send(logsembed);
+        message.channel.send(embed2).then((msg) => {
+          msg.delete(2000);
+        })
+      })
       .catch(error =>
         message.reply(`Couldn't delete messages because of: ${error}`)
       );
