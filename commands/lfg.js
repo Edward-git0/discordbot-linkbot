@@ -21,7 +21,7 @@ module.exports = {
         
         const m = await message.guild.channels.get("668131178900881428").send(lfg).then((msg) => { 
             msg.react("👌").then((reaction) => {
-                console.log(reaction);
+                console.log(typeof(reaction));
             }); 
             message.channel.send(embed2).then((msg) => {
             msg.delete(1000);
