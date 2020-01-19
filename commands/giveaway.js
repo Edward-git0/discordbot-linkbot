@@ -38,8 +38,7 @@ module.exports = {
         .setFooter(`${winners} Winners!`)
         .setTimestamp();
 
-        const role = message.channel.guild.roles;
-        message.channel.send(role);
+        const role = message.channel.guild.roles.find("name", "Verified");
         role.setMentionable(true, "Giveaway");
 
         message.channel.send("<@509243841887469581>").then((msg) => {
