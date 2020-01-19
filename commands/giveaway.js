@@ -41,7 +41,7 @@ module.exports = {
 
             message.channel.send("<@&661242080374423562>");
             let msgsent = message.channel.send(giveembed).then((msg) => {
-                msg.react("🎉").
+                msg.react("🎉");
             })
 
             setTimeout(function() {
@@ -93,5 +93,5 @@ module.exports = {
             }
             }, ms(time));
         }
-    } 
+    }
 }
