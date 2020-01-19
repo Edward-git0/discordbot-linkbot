@@ -38,12 +38,12 @@ module.exports = {
         .setFooter(`${winners} Winners!`)
         .setTimestamp();
 
-        
-        for(const role of message.channel.guild.roles) {
-            message.channel.send(role);
-        }
+        const role = message.channel.guild.roles['509243841887469581'];
+        role.setMentionable(true, "Giveaway");
 
-        message.channel.send("<@509243841887469581>");
+        message.channel.send("<@509243841887469581>").then((msg) => {
+            role.setMentionable(false, "Pinged");
+        });
         let msgsent = message.channel.send(giveembed).then((msg) => {
             msg.react("🎉");
         })
