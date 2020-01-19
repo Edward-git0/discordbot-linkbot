@@ -41,7 +41,7 @@ module.exports = {
         const role = message.channel.guild.roles.find("name", "Verified");
         role.setMentionable(true, "Giveaway");
 
-        message.channel.send("<@509243841887469581>").then((msg) => {
+        message.channel.send("<@&509243841887469581>").then((msg) => {
             role.setMentionable(false, "Pinged");
         });
         let msgsent = message.channel.send(giveembed).then((msg) => {
