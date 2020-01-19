@@ -20,9 +20,10 @@ module.exports = {
         .setTimestamp();
         
         const m = await message.guild.channels.get("668131178900881428").send(lfg).then((msg) => { 
+            message.delete();
             msg.react("👌");
             const filter = (reaction, user) => reaction.emoji.name === '👌' && user.id === message.author.id
-            const collector = message.createReactionCollector(filter, { time: 3600000 });
+            const collector = msg.createReactionCollector(filter, { time: 3600000 });
             collector.on('collect', r => console.log(`Collected ${r.emoji.name}`));
             collector.on('end', collected => console.log(`Collected ${collected.size} items`));
             message.channel.send(embed2).then((msg) => {
