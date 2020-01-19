@@ -155,6 +155,9 @@ client.on('message', async message => {
         case "slowmode":
           client.commands.get('slowmode').execute(message, args, Discord);
         break;
+        case "toggle":
+          client.commands.get('toggle').execute(message, args, Discord);
+        break;
         case "status": 
             message.channel.send(status); 
         break;
