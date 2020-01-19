@@ -36,7 +36,12 @@ module.exports = {
       .setThumbnail(message.author.avatarURL)
       .setTimestamp()
       .setFooter(`User: ${message.author.username}`, message.author.avatarURL);
-
+      const embed2 = new Discord.RichEmbed()
+      .setTitle("Purge")
+      .setDescription("Purge successful :white_check_mark:")
+      .setColor("BLURPLE")
+      .setTimestamp();
+      message.channel.send(embed2);
       message.channel
       .bulkDelete(deleteCount+1)
       .then(messages => logs.send(logsembed))
