@@ -6,7 +6,7 @@ module.exports = {
         if (
             message.author.id !== "598513581033521152" &&
             message.author.id !== "443664778901061633" &&
-            message.author.id !== "632286186320429069"
+            message.author.id !== "338509501290250240"
           ) {
             return message.reply("This command is developer-only :x:!");
           }
