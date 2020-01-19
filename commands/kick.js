@@ -4,7 +4,7 @@ module.exports = {
     execute(message, args, Discord) {
         if (!message.member.hasPermission(["KICK_MEMBERS"]))
         return message.channel.send("You can't perform this command. ❌");
-        let reason = args.join(" ");
+        let reason = args.splice(2, args.length).join(" ");
   
         const user = message.mentions.users.first();
         if (user) {
