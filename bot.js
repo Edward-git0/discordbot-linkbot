@@ -176,6 +176,74 @@ client.on('message', async message => {
     }
 });
 
+  // LOGS =================================================================================================
+
+  Client.on("messageDelete", async message => {
+    if (message.author.bot) return;
+    let logs = message.guild.channels.find("name", "infraction-logs");
+
+    let logsembed = new Discord.RichEmbed()
+      .setTitle("Logs")
+      .setColor("BLURPLE")
+      .addField(
+        `Message Delete`,
+        `${message.author.username}'s message got deleted in ${message.channel}! :white_check_mark:` +
+          "\n\nMessage:```\n" +
+          message.content.toLowerCase() +
+          "\n```"
+      )
+      .setThumbnail(message.author.avatarURL)
+      .setTimestamp()
+      .setFooter(`User: ${message.author.username}`, message.author.avatarURL);
+    logs.send(logsembed);
+  });
+
+  Client.on("messageUpdate", async (oldMessage, newMessage) => {
+    if (oldMessage.author.bot) return;
+    if (oldMessage.content === newMessage.content) return;
+
+    let logs = oldMessage.guild.channels.find("name", "infraction-logs");
+
+    let logsembed = new Discord.RichEmbed()
+      .setTitle("Logs")
+      .setColor("BLURPLE")
+      .addField(
+        `Message Edit`,
+        `${oldMessage.author.username}'s message was edited in ${oldMessage.channel}! :white_check_mark:` +
+          "\n\nOld Message:```\n" +
+          oldMessage.content.toLowerCase() +
+          "\n``` \n\n" +
+          "New Message:```\n" +
+          newMessage.content.toLowerCase() +
+          "\n```"
+      )
+      .setThumbnail(oldMessage.author.avatarURL)
+      .setTimestamp()
+      .setFooter(
+        `User: ${oldMessage.author.username}`,
+        oldMessage.author.avatarURL
+      );
+    logs.send(logsembed);
+    logs.send(fetch);
+  });
+
+  Client.on("guildMemberAdd", member => {
+    member.addRole("659833893263900715").then(() => {
+      member.addRole("658847442992889867").then(() => {
+        member.addRole("658847556335435808").then(() => {
+          member.addRole("661242111211077632").then(() => {
+            member.addRole("658750889904832573").then(() => {
+              member.addRole("661242080374423562").then(() => {
+                member.addRole("661242059562287114").then(() => {
+                  member.addRole("661242024569208854");
+                });
+              });
+            });
+          });
+        });
+      });
+    });
+  });
+
  
-//client.mongoose.init();
 client.login(token);
