@@ -227,6 +227,7 @@ client.on('message', async message => {
     logs.send(fetch);
   });
 
+  /*
   Client.on("guildMemberAdd", member => {
     member.addRole("659833893263900715").then(() => {
       member.addRole("658847442992889867").then(() => {
@@ -244,6 +245,6 @@ client.on('message', async message => {
       });
     });
   });
-
+ */
  
 client.login(token);
