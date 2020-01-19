@@ -2,7 +2,7 @@ module.exports = {
     name: "giveaway",
     description: "Free things!",
     category: "fun",
-    execute(message, args, Discord, ms) {
+    async execute(message, args, Discord, ms) {
         // yes someone literally copied a dutch youtubers video lmfao ===================================== smh dont kill me pls
         var item = "";
         var time = 0;
