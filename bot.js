@@ -127,6 +127,9 @@ client.on('message', async message => {
         case "kill":
           client.commands.get('kill').execute(message, args);
         break;
+        case "drown":
+          client.commands.get('drown').execute(message, args, tenor);
+        break;
         case "status": 
             message.channel.send(status); 
         break;
