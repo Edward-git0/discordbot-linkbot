@@ -23,7 +23,7 @@ module.exports = {
             message.delete();
             msg.react("👌");
             const filter = (reaction, user) => reaction.emoji.name === '👌' && user.id === message.author.id
-            const collector = msg.createReactionCollector(filter, { time: 3600000 });
+            const collector = msg.createReactionCollector(filter);
             collector.on('collect', r => { 
                 const embed3 = new Discord.RichEmbed()
                 .setTitle("Looking For Group")
