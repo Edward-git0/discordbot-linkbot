@@ -12,7 +12,15 @@ module.exports = {
         .setTimestamp()
         .setThumbnail(message.author.avatarURL)
         .setColor("BLURPLE")
+
+        const embed2 = new Discord.RichEmbed()
+        .setTitle("Looking for group")
+        .setDescription("Post sent successfully")
+        .setColor("BLURPLE")
+        .setTimestamp();
         
-        const m = await message.guild.channels.get("668131178900881428").send(lfg);
+        const m = await message.guild.channels.get("668131178900881428").send(lfg).then(() => { message.channel.send(embed2).then((msg) => {
+            msg.delete(1000);
+        }) })
     }
 }

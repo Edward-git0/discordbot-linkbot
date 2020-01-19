@@ -92,7 +92,7 @@ module.exports = {
                 }
         
                 for (let i = 0; i < winner.length; i++) {
-                    message.channel.send(":tada: **" + winner[i] + `won ${item}!** :tada:`);
+                    message.channel.send(":tada: **" + winner[i] + ` won ${item}!** :tada:`);
                 }
                 }, ms(time));
         })
