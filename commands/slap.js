@@ -3,6 +3,6 @@ module.exports = {
     description: "Slapped across the face. Ouch.",
     category: "fun",
     execute(message, args, tenor) {
-        enor(6, "slap", "got slapped by", "How do you even slap yourself?");
+        tenor(6, "slap", "got slapped by", "How do you even slap yourself?");
     }
 }
