@@ -130,6 +130,21 @@ client.on('message', async message => {
         case "drown":
           client.commands.get('drown').execute(message, args, tenor);
         break;
+        case "slap":
+            client.commands.get('slap').execute(message, args);
+        break;
+        case "hug":
+            client.commands.get('hug').execute(message, args);
+        break;
+        case "cuddle":
+          client.commands.get('cuddle').execute(message, args);
+        break;
+        case "pat":
+          client.commands.get('pat').execute(message, args, tenor);
+        break;
+        case "poke":
+            client.commands.get('poke').execute(message, args, Discord);
+        break;
         case "status": 
             message.channel.send(status); 
         break;
