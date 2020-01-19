@@ -1,5 +1,6 @@
 const fs = require('fs');
 const ms = require('ms');
+const request = require("request-promise-native");
 const Discord = require('discord.js');
 const client = new Discord.Client({ disableEveryone: true });
 const { prefix, token, version, status } = require('./config.json');
@@ -131,19 +132,19 @@ client.on('message', async message => {
           client.commands.get('drown').execute(message, args, tenor);
         break;
         case "slap":
-            client.commands.get('slap').execute(message, args);
+            client.commands.get('slap').execute(message, args, tenor);
         break;
         case "hug":
-            client.commands.get('hug').execute(message, args);
+            client.commands.get('hug').execute(message, args, tenor);
         break;
         case "cuddle":
-          client.commands.get('cuddle').execute(message, args);
+          client.commands.get('cuddle').execute(message, args, tenor);
         break;
         case "pat":
           client.commands.get('pat').execute(message, args, tenor);
         break;
         case "poke":
-            client.commands.get('poke').execute(message, args, Discord);
+            client.commands.get('poke').execute(message, args, tenor);
         break;
         case "status": 
             message.channel.send(status); 
