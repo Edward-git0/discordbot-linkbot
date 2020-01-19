@@ -165,7 +165,7 @@ client.on('message', async message => {
           client.commands.get('boxing').execute(message, args);
         break;
         case "help":
-          client.commands.get('help').execute(message, args, Discord, commands);
+          client.commands.get('help').execute(message, args, Discord, client.commands);
         break;
         case "status": 
             message.channel.send(status); 
