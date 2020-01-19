@@ -2,22 +2,20 @@ module.exports = {
     name: "lfg",
     description: "looking for group",
     category: "general",
+    cooldown: 10,
     async execute(message, args, Discord, cooldowns) {
         let game = args.join(" ");
         if (!game) return message.channel.send("Specify a game! :x:")
         const now = Date.now();
         const timestamps = cooldowns.get('lfg');
         const cooldownAmount = (10) * 1000;
-        if (!cooldowns.has('lfg')) {
-            cooldowns.set('lfg', new Discord.Collection());
-        }
         if (timestamps.has(message.author.id)) {
             const embed4 = new Discord.RichEmbed()
             .setTitle("Cooldown")
             .setDescription("You can only send a LFG post once every 10 minutes!")
             .setColor("BLURPLE")
             .setTimestamp();
-            return message.channel.send(embed4).then((msg)=>{msg.delete(2000)})
+            return message.channel.send(embed4).then((msg)=>{msg.delete(5000)})
         }
         timestamps.set(message.author.id, now);
         setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);

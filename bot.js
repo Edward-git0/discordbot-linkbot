@@ -172,6 +172,9 @@ client.on('message', async message => {
           client.commands.get('giveaway').execute(message, args, Discord, ms);
         break;
         case "lfg":
+          if (!cooldowns.has('lfg')) {
+              cooldowns.set('lfg', new Discord.Collection());
+          }
           client.commands.get('lfg').execute(message, args, Discord, cooldowns);
         break;
         case "status": 
