@@ -2,11 +2,11 @@ module.exports = {
     name: "giveaway",
     description: "Free things!",
     category: "fun",
-    async execute(message, args, Discord, ms) {
+    execute(message, args, Discord, ms) {
         // yes someone literally copied a dutch youtubers video lmfao ===================================== smh dont kill me pls
         if (command === "giveaway") {
             var item = "";
-            var time;
+            var time = 0;
             var winners;
 
             if (!message.member.hasPermission(["MANAGE_MESSAGES"]))
