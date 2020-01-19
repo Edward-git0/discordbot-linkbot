@@ -4,6 +4,7 @@ const request = require("request-promise-native");
 const Discord = require('discord.js');
 const client = new Discord.Client({ disableEveryone: true });
 const { prefix, token, version, status } = require('./config.json');
+const cooldowns = new Discord.Collection();
 //const db_url = 'mongodb+srv://pseudorandomness:UT2WYeH7HhRUzgUh@cluster0-uzi93.mongodb.net/test?retryWrites=true&w=majority';
 
 client.commands = new Discord.Collection();
@@ -171,7 +172,7 @@ client.on('message', async message => {
           client.commands.get('giveaway').execute(message, args, Discord, ms);
         break;
         case "lfg":
-          client.commands.get('lfg').execute(message, args, Discord);
+          client.commands.get('lfg').execute(message, args, Discord, cooldowns);
         break;
         case "status": 
             message.channel.send(status); 

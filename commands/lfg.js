@@ -1,17 +1,16 @@
-const cooldowns = new Discord.Collection();
-cooldowns.set("lfg", new Discord.Collection());
-
 module.exports = {
     name: "lfg",
     description: "looking for group",
     category: "general",
-    async execute(message, args, Discord) {
+    async execute(message, args, Discord, cooldowns) {
         let game = args.join(" ");
         if (!game) return message.channel.send("Specify a game! :x:")
         const now = Date.now();
         const timestamps = cooldowns.get('lfg');
         const cooldownAmount = (10) * 1000;
-
+        if (!cooldowns.has('lfg')) {
+            cooldowns.set('lfg', new Discord.Collection());
+        }
         if (timestamps.has(message.author.id)) {
             const embed4 = new Discord.RichEmbed()
             .setTitle("Cooldown")
@@ -22,7 +21,7 @@ module.exports = {
         }
         timestamps.set(message.author.id, now);
         setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
-        
+
         const lfg = new Discord.RichEmbed()
         .setTitle("Looking For Group")
         .addField(game, `${message.author.toString()} is looking for a group for ${game}!`)
