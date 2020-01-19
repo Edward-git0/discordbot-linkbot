@@ -178,7 +178,7 @@ client.on('message', async message => {
 
   // LOGS =================================================================================================
 
-  Client.on("messageDelete", async message => {
+  client.on("messageDelete", async message => {
     if (message.author.bot) return;
     let logs = message.guild.channels.find("name", "infraction-logs");
 
@@ -198,7 +198,7 @@ client.on('message', async message => {
     logs.send(logsembed);
   });
 
-  Client.on("messageUpdate", async (oldMessage, newMessage) => {
+  client.on("messageUpdate", async (oldMessage, newMessage) => {
     if (oldMessage.author.bot) return;
     if (oldMessage.content === newMessage.content) return;
 
