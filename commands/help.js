@@ -4,7 +4,7 @@ module.exports = {
     category: "general",
     execute(message, args, Discord, commands) {
         for (const command of commands) {
-            message.channel.send(command['name']);
+            message.channel.send(command['description']);
         }
     }
 }
