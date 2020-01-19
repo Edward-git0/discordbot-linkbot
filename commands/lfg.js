@@ -19,7 +19,15 @@ module.exports = {
         .setColor("BLURPLE")
         .setTimestamp();
         
-        const m = await message.guild.channels.get("668131178900881428").send(lfg).then(() => { message.channel.send(embed2).then((msg) => {
+        const m = await message.guild.channels.get("668131178900881428").send(lfg).then((msg) => { 
+            msg.react("👌").then((reaction) => {
+                // Create a reaction collector
+                const filter = (reaction, user) => reaction.emoji.name === '👌' && user.id === message.author.id
+                message.awaitReactions(filter)
+                .then(collected => console.log(`Collected ${collected.size} reactions`))
+                .catch(console.error);
+            }); 
+            message.channel.send(embed2).then((msg) => {
             msg.delete(1000);
         }) })
     }
