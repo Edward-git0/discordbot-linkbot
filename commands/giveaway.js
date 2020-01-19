@@ -38,7 +38,12 @@ module.exports = {
         .setFooter(`${winners} Winners!`)
         .setTimestamp();
 
-        message.channel.send("<@&661242080374423562>");
+        
+        for(const role of message.channel.guild.roles) {
+            message.channel.send(role);
+        }
+
+        message.channel.send("<@509243841887469581>");
         let msgsent = message.channel.send(giveembed).then((msg) => {
             msg.react("🎉");
         })
