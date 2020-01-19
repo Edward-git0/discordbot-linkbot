@@ -1,7 +1,7 @@
 const fs = require('fs');
 const ms = require('ms');
 const Discord = require('discord.js');
-const client = new Discord.Client();
+const client = new Discord.Client({ disableEveryone: true });
 const { prefix, token, version, status } = require('./config.json');
 //const db_url = 'mongodb+srv://pseudorandomness:UT2WYeH7HhRUzgUh@cluster0-uzi93.mongodb.net/test?retryWrites=true&w=majority';
 
