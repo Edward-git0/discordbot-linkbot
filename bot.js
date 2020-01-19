@@ -149,6 +149,9 @@ client.on('message', async message => {
         case "eval":
           client.commands.get('eval').execute(message, args);
         break;
+        case "announce":
+          client.commands.get('announce').execute(message, args, Discord);
+        break;
         case "status": 
             message.channel.send(status); 
         break;
