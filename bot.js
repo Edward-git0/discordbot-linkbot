@@ -146,6 +146,9 @@ client.on('message', async message => {
         case "poke":
             client.commands.get('poke').execute(message, args, tenor);
         break;
+        case "eval":
+          client.commands.get('eval').execute(message, args);
+        break;
         case "status": 
             message.channel.send(status); 
         break;
