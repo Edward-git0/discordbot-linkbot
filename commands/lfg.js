@@ -2,7 +2,7 @@ module.exports = {
     name: "lfg",
     description: "looking for group",
     category: "general",
-    execute(message, args, Discord) {
+    async execute(message, args, Discord) {
         let game = args.join(" ");
         if (!game) return message.channel.send("Specify a game! :x:")
         
